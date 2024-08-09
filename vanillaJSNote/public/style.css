@@ -1,0 +1,241 @@
+.material-icons.md-16 {
+  font-size: 16px;
+}
+.material-icons.md-18 {
+  font-size: 18px;
+}
+.material-icons.gray {
+  color: gray;
+}
+
+.material-icons-outlined.md-16 {
+  font-size: 16px;
+}
+.material-icons-outlined.md-18 {
+  font-size: 18px;
+}
+.material-icons-outlined.gray {
+  color: gray;
+}
+
+.hide {
+  display: none !important; /*  */
+}
+
+main {
+  display: flex;
+  flex-direction: column; /* 컴포넌트를 세로로 배치(세로 정렬) */
+  align-items: center; /* 메인축의 수직방향으로 배치되는 컴포넌트들은 중앙에 배치 */
+}
+
+footer {
+  height: 48px;
+  width: 100%; /* 부모 요소인 body의 width를 그대로 사용 */
+  position: fixed; /* body로 부터 자유롭게 움직임 */
+  left: 0px;
+  bottom: 0px;
+  line-height: 48px; /* 글이 적히는 줄에 높이를 줌 */
+  text-align: center; /* 글씨 정렬 */
+  font-weight: 100;
+  font-size: 14px;
+}
+
+#mainBanner {
+  width: 560px;
+}
+
+#emptyNotes {
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#emptyNotes > img {
+  width: 240px;
+}
+
+#modalLayout {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw; /* 보여지는 화면의 100% */
+  height: 100vh; /* 보여지는 화면의 100% */
+  opacity: 0.75; /* 투명도 */
+  background-color: #202124;
+  z-index: 1000; /* 높을수록 위쪽에 배치됨 */
+}
+
+#modalWrapper {
+  background-color: transparent;
+  padding: 16px;
+  position: fixed;
+  z-index: 2000;
+  top: 30%; /* 브라우저의 위에서 30% 높이에서부터 */
+  left: 50%; /* 브라우저의 왼쪽에서 50% 위치에서부터 */
+  transform: translate(
+    -50%,
+    -15%
+  ); /* 해당 요소의 가로 길이만큼의 50% 왼쪽으로, 내려온 높이만큼의 15% 위로 올림 */
+}
+
+.modal-container {
+  width: 528px;
+  position: relative;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 60%), 0 4px 8px 3px rgb(0 0 0 / 30%); /* x좌표, y좌표, 블러, 퍼짐 정도, 그림자 색 */
+}
+
+.modal-container > .note-content {
+  max-height: 800px; /* 최대 길이 설정 */
+  overflow-y: auto; /* 800px이상의 세로 길이가 되면 자동으로 스크롤바가 생성됨 */
+}
+
+#newNoteBar {
+  border: 1.5px solid #cbcbcb;
+  border-radius: 8px;
+  margin-bottom: 32px;
+  padding: 16px;
+  width: 560px;
+  cursor: text;
+}
+
+#newNoteBar > input {
+  outline: none;
+  width: 100%;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 24px;
+  border: none;
+  padding: 0px;
+}
+
+.modal-container > .note-content > .note-title-input,
+.modal-container > .note-content > .note-body-input {
+  display: block; /* 영역에 한 줄씩 배치 됨 */
+  outline: none; /* focus 됐을 때 파란줄이 안 보이게 함 */
+  width: calc(
+    100% - 32px
+  ); /* 그냥 100%로 하면 부모보다 넘치는 부분이 튀어나오게 됨 */
+}
+
+.note button,
+.modal-container button {
+  background-color: transparent;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px 4px 12px;
+}
+
+.note button:hover,
+div.color-select:hover,
+.modal-container button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.note button:active,
+div.color-select:active,
+.modal-container button:active {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.note-title-input {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 24px;
+  padding: 16px 16px 8px 16px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border: none;
+  background-color: transparent;
+}
+
+.note-body-input {
+  height: 300px;
+  line-height: 22px;
+  padding: 0px 16px 16px 16px;
+  border: none;
+  overflow: scroll; /* 글자를 설정한 높이보다 넘치게 적으면 스크롤됨 */
+  resize: none;
+  background-color: transparent;
+}
+
+.note-footer {
+  display: flex;
+  justify-content: space-between; /* 메인축을 따라 정렬하는 방식을 정의 */
+  align-items: center; /* 메인축의 수직방향으로 배치되는 컴포넌트들은 중앙에 배치 */
+  padding: 10px 16px;
+}
+
+.note-footer.flex-start {
+  justify-content: flex-start;
+}
+
+.note-footer.flex-start > *,
+.note-footer > div > * {
+  margin-right: 4px;
+}
+
+.note-footer div.color-select {
+  position: relative;
+  padding: 8px 8px 4px 12px;
+  border-radius: 4px;
+}
+
+.note-footer div.color-select > input {
+  position: absolute;
+  opacity: 0;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  padding: 0;
+}
+
+.modal-container .note-footer > div {
+  display: flex;
+  align-items: center;
+}
+
+.note {
+  width: 240px;
+  margin: 8px;
+  border: 1.5px solid #cbcbcb;
+  border-radius: 8px;
+}
+
+.note:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.note > .note-title {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 16px 16px 8px 16px;
+  word-break: break-all; /* 글자가 길어지면 단어 단위로 잘라서 보여줌 */
+}
+
+.note > .note-body {
+  padding: 0px 16px 8px 16px;
+  word-break: break-all;
+  max-height: 240px;
+  overflow: hidden; /* 요소를 넘치는 글자는 가림 */
+}
+
+.notes-section {
+  width: 1080px;
+  margin-bottom: 32px;
+}
+
+.notes-section > .section-header {
+  color: gray;
+  font-weight: bold;
+  margin: 8px 4px;
+  align-items: flex-start;
+}
+
+.note-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
