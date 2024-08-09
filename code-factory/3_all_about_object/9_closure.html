@@ -1,0 +1,15 @@
+<script>
+  function getN() {
+    var n = 5;
+
+    function innerGetN() {
+      return n;
+    }
+
+    return innerGetN;
+  }
+
+  var runner = getN();
+
+  console.log(runner());
+</script>
